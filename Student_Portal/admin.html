@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>try { document.documentElement.setAttribute('data-theme', localStorage.getItem('charusat-theme') === 'dark' ? 'dark' : 'light'); } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }</script>
+    <title>Admin | StudentHub Portal</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header><h1>Admin</h1><div class="nav-controls"><button class="theme-toggle" type="button" aria-label="Switch theme">Dark Theme</button><button class="hamburger-menu" type="button" aria-expanded="false" aria-label="Open navigation menu" aria-controls="main-nav">☰</button></div></header>
+<nav id="main-nav"><div class="nav-wrap"><ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="admin.html" aria-current="page">Admin</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+</ul></div></nav>
+<main><div class="container page-container simple-page"><section class="simple-page-heading"><h2>Admin Dashboard</h2><p>Overview of the portal's sample records.</p></section>
+<section class="simple-stats"><div class="card simple-stat"><span>Students</span><strong id="admin-student-count">—</strong></div><div class="card simple-stat"><span>Events</span><strong id="admin-event-count">—</strong></div><div class="card simple-stat"><span>FAQs</span><strong id="admin-faq-count">—</strong></div></section>
+<section class="card simple-section"><h3>Portal Sections</h3><ul class="simple-admin-links"><li><a href="students.html">Student Directory <span>Open →</span></a></li><li><a href="events.html">Events <span>Open →</span></a></li><li><a href="faq.html">FAQs <span>Open →</span></a></li><li><a href="feedback.html">Feedback <span>Open →</span></a></li></ul></section></div></main>
+<footer><p>&copy; 2026 CHARUSAT StudentHub Portal</p></footer>
+<script src="js/theme.js" defer></script><script src="js/hamburger.js" defer></script><script>document.addEventListener('DOMContentLoaded', async () => { const items=[['data/students.json','admin-student-count'],['data/events.json','admin-event-count'],['data/faqs.json','admin-faq-count']]; for (const [url,id] of items) { try { const r=await fetch(url); if(!r.ok) throw new Error(); const d=await r.json(); document.getElementById(id).textContent=Array.isArray(d)?d.length:Object.keys(d).length; } catch(e) { document.getElementById(id).textContent='—'; } } });</script>
+</body></html>

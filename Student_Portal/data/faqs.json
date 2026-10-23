@@ -1,0 +1,17 @@
+[
+  {"id":1,"category":"Admissions","question":"How do I apply for admission?","answer":"You can complete the registration process on the StudentHub Portal and submit all required academic information."},
+  {"id":2,"category":"Admissions","question":"When do classes begin?","answer":"Classes usually begin at the start of the semester as announced by the university academic calendar."},
+  {"id":3,"category":"Academics","question":"How do I check my timetable?","answer":"The timetable is available on the dashboard and the StudentHub Portal under the academic section."},
+  {"id":4,"category":"Academics","question":"Who can help with course registration?","answer":"Your faculty advisor or the student support office can help with registration and course selection."},
+  {"id":5,"category":"Campus","question":"Where is the library located?","answer":"The library is close to the central academic block and is open during most of the day for students."},
+  {"id":6,"category":"Campus","question":"How do I access Wi-Fi on campus?","answer":"Use your student login details on the university network and follow the campus connectivity instructions."},
+  {"id":7,"category":"Finance","question":"Where do I pay fees?","answer":"Fee payments are managed through the official StudentHub Portal and the finance office assistance desk."},
+  {"id":8,"category":"Finance","question":"Is there a fee refund policy?","answer":"Refunds are handled according to the university policy and the student admission guidelines."},
+  {"id":9,"category":"Support","question":"Who do I contact for technical help?","answer":"The IT help desk can assist with login, portal issues, and basic student account support."},
+  {"id":10,"category":"Support","question":"How can I contact my class advisor?","answer":"You can meet your class advisor during office hours or contact the department office for scheduling."},
+  {"id":11,"category":"Career","question":"How can I join a placement session?","answer":"Placement sessions are announced through the portal, notices, and department communications."},
+  {"id":12,"category":"Career","question":"Do internships appear on the portal?","answer":"Yes, internship information and opportunities are listed under the student events and career sections."},
+  {"id":13,"category":"Campus","question":"Can I participate in student clubs?","answer":"Yes, students can join cultural, technical, and sports clubs through faculty and club coordinators."},
+  {"id":14,"category":"Academics","question":"How do I submit assignments?","answer":"Assignments are typically submitted through the learning platform or the course coordinator as directed."},
+  {"id":15,"category":"Support","question":"Where can I ask for accommodation help?","answer":"The student support office handles accommodation requests and related guidance for new students."}
+]

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                const savedTheme = localStorage.getItem('charusat-theme');
+                const theme = savedTheme === 'dark' ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        }());
+    </script>
+    <title>Events - CHARUSAT</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="nav-controls">
+        <button class="theme-toggle" type="button" aria-label="Switch to dark theme">Dark Theme</button>
+        <button class="hamburger-menu" type="button" aria-expanded="false" aria-label="Open navigation menu" aria-controls="main-nav">☰</button>
+    </div>
+    <h1>CHARUSAT Student Events</h1>
+</header>
+
+<nav id="main-nav">
+    <div class="nav-wrap">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="events.html" aria-current="page">Events</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="admin.html">Admin</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main>
+    <div class="container">
+        <section class="card">
+            <h2>Upcoming Events</h2>
+
+            <div class="toolbar" aria-live="polite">
+                <div class="field-group compact">
+                    <label for="eventSearch">Search</label>
+                    <input id="eventSearch" type="search" placeholder="Search events">
+                </div>
+
+                <div class="field-group compact">
+                    <label for="eventCategory">Category</label>
+                    <select id="eventCategory">
+                        <option value="">All categories</option>
+                    </select>
+                </div>
+
+                <div class="field-group compact">
+                    <label for="eventStatus">Status</label>
+                    <select id="eventStatus">
+                        <option value="">All status</option>
+                        <option value="open">Open</option>
+                        <option value="closed">Closed</option>
+                    </select>
+                </div>
+
+                <div class="field-group compact">
+                    <label for="eventSort">Sort</label>
+                    <select id="eventSort">
+                        <option value="date">Date</option>
+                        <option value="title">Title</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="eventList" class="results-list" aria-live="polite"></div>
+
+            <div class="pagination" aria-live="polite">
+                <button type="button" data-page="prev">Previous</button>
+                <span data-page="label">Page 1 of 1</span>
+                <button type="button" data-page="next">Next</button>
+            </div>
+        </section>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2026 CHARUSAT University. All Rights Reserved.</p>
+</footer>
+
+<script type="module" src="js/events_page.js"></script>
+<script src="js/theme.js" defer></script>
+<script src="js/hamburger.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+.simple-section h3 { margin: 0 0 1rem; font-size: 1.1rem; }
+
+.simple-service-list { list-style: none; padding: 0; margin: 0; }
+
+.simple-service-list li { padding: .55rem 0; border-bottom: 1px solid var(--border); }
+
+.simple-service-list li:last-child { border-bottom: 0; }
+
+.simple-profile-head { display: flex; align-items: center; gap: 1rem; padding-bottom: 1rem; margin-bottom: 1rem; border-bottom: 1px solid var(--border); }
+
+.simple-avatar { display: grid; place-items: center; width: 58px; height: 58px; border-radius: 50%; background: var(--primary); color: #fff; font-weight: 700; font-size: 1.15rem; }
+
+.simple-profile-head h3, .simple-profile-head p { margin: 0; }
+
+.simple-profile-head p { color: var(--muted); }
+
+.simple-details { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 2rem; margin: 0 0 1.25rem; }
+
+.simple-details div { padding: .75rem 0; border-bottom: 1px solid var(--border); }
+
+.simple-details dt { color: var(--muted); font-size: .9rem; }
+
+.simple-details dd { margin: .15rem 0 0; font-weight: 600; overflow-wrap: anywhere; }
+
+.simple-stats { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1rem; margin-bottom: 1rem; }
+
+.simple-stat { padding: 1rem 1.1rem; box-shadow: none; }
+
+.simple-stat span { display: block; color: var(--muted); }
+
+.simple-stat strong { display: block; font-size: 1.8rem; line-height: 1.3; }
+
+.simple-admin-links { list-style: none; padding: 0; margin: 0; }
+
+.simple-admin-links li { border-bottom: 1px solid var(--border); }
+
+.simple-admin-links li:last-child { border-bottom: 0; }
+
+.simple-admin-links a { display: flex; justify-content: space-between; gap: 1rem; padding: .8rem 0; text-decoration: none; }
+
+.simple-contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 1rem; align-items: start; }
+
+.simple-contact-grid p { margin: 0 0 1rem; }
+
+.project-contact-form label { display: block; margin: .7rem 0 .25rem; font-weight: 600; }
+
+.project-contact-form input, .project-contact-form textarea { width: 100%; padding: .65rem .7rem; border: 1px solid var(--border); border-radius: 5px; background: var(--surface); color: var(--text); }
+
+.project-contact-form .btn { margin-top: .8rem; }
+
+@media (max-width: 800px) { .simple-link-grid { grid-template-columns: 1fr; } .simple-contact-grid { grid-template-columns: 1fr; } }
+
+@media (max-width: 520px) { .simple-details, .simple-stats { grid-template-columns: 1fr; } }
+
+/* StudentHub Portal branding and footer alignment */
+body > footer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 54px;
+    padding: 12px 20px;
+    margin-top: auto;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+body > footer p {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    text-align: center;
+    line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+    body > footer { grid-column: 1 / -1; }
+}

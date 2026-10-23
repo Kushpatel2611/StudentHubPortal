@@ -1,0 +1,11 @@
+/* StudentHub Portal stylesheets.
+   Imported in the original order to preserve the existing appearance.
+   Shared rules are separated across files for easier maintenance. */
+@import url("style-base.css");
+@import url("layout.css");
+@import url("components.css");
+@import url("home.css");
+@import url("dashboard.css");
+@import url("profile.css");
+@import url("contact.css");
+@import url("admin.css");

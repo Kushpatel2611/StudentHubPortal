@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                const savedTheme = localStorage.getItem('charusat-theme');
+                const theme = savedTheme === 'dark' ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        }());
+    </script>
+
+    <title>Register - CHARUSAT</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="nav-controls">
+        <button class="theme-toggle" type="button" aria-label="Switch to dark theme">Dark Theme</button>
+        <button class="hamburger-menu" type="button" aria-expanded="false" aria-label="Open navigation menu" aria-controls="main-nav">☰</button>
+    </div>
+    <h1>CHARUSAT University</h1>
+</header>
+
+<nav id="main-nav">
+    <div class="nav-wrap">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="register.html" aria-current="page">Register</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="admin.html">Admin</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main>
+
+    <form id="studentRegistrationForm" novalidate>
+
+        <fieldset>
+
+            <legend>Register Student</legend>
+
+            <div class="form-grid">
+
+                <div class="field-group">
+                    <label for="fullName">Full Name</label>
+                    <input
+                        type="text"
+                        id="fullName"
+                        name="fullName"
+                        placeholder="Enter your full name"
+                        required
+                        autocomplete="name"
+                        minlength="2"
+                        aria-describedby="fullNameError"
+                    >
+                    <div class="field-error" id="fullNameError" aria-live="polite"></div>
+                </div>
+
+                <div class="field-group">
+                    <label for="email">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                        autocomplete="email"
+                        aria-describedby="emailError"
+                    >
+                    <div class="field-error" id="emailError" aria-live="polite"></div>
+                </div>
+
+                <div class="field-group">
+                    <label for="mobile">Mobile Number</label>
+                    <input
+                        type="tel"
+                        id="mobile"
+                        name="mobile"
+                        placeholder="Enter 10 digit mobile number"
+                        required
+                        autocomplete="tel"
+                        inputmode="numeric"
+                        minlength="10"
+                        aria-describedby="mobileError"
+                    >
+                    <div class="field-error" id="mobileError" aria-live="polite"></div>
+                </div>
+
+                <div class="field-group">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Create a password"
+                        required
+                        autocomplete="new-password"
+                        minlength="8"
+                        aria-describedby="passwordError passwordStrength"
+                    >
+                    <div class="password-strength" id="passwordStrength" aria-live="polite">Password strength: <span id="strengthText">Weak</span></div>
+                    <div class="field-error" id="passwordError" aria-live="polite"></div>
+                </div>
+
+                <div class="field-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        placeholder="Re-enter your password"
+                        required
+                        autocomplete="new-password"
+                        minlength="8"
+                        aria-describedby="confirmPasswordError"
+                    >
+                    <div class="field-error" id="confirmPasswordError" aria-live="polite"></div>
+                </div>
+
+                <div class="field-group">
+                    <label for="course">Course</label>
+                    <select id="course" name="course" required aria-describedby="courseError">
+                        <option value="">Select a course</option>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Information Technology">Information Technology</option>
+                        <option value="Mechanical Engineering">Mechanical Engineering</option>
+                        <option value="Civil Engineering">Civil Engineering</option>
+                    </select>
+                    <div class="field-error" id="courseError" aria-live="polite"></div>
+                </div>
+
+                <div class="field-group">
+                    <label for="year">Year</label>
+                    <select id="year" name="year" required aria-describedby="yearError">
+                        <option value="">Select a year</option>
+                        <option value="1">First Year</option>
+                        <option value="2">Second Year</option>
+                        <option value="3">Third Year</option>
+                        <option value="4">Fourth Year</option>
+                    </select>
+                    <div class="field-error" id="yearError" aria-live="polite"></div>
+                </div>
+
+                <div class="field-group">
+                    <label for="country">Country</label>
+                    <select id="country" name="country" required aria-describedby="countryError">
+                        <option value="">Select a country</option>
+                    </select>
+                    <div class="field-error" id="countryError" aria-live="polite"></div>
+                </div>
+
+                <div class="field-group">
+                    <label for="state">State</label>
+                    <select id="state" name="state" required aria-describedby="stateError" disabled>
+                        <option value="">Select a state</option>
+                    </select>
+                    <div class="field-error" id="stateError" aria-live="polite"></div>
+                </div>
+
+                <div class="field-group">
+                    <label for="city">City</label>
+                    <select id="city" name="city" required aria-describedby="cityError" disabled>
+                        <option value="">Select a city</option>
+                    </select>
+                    <div class="field-error" id="cityError" aria-live="polite"></div>
+                </div>
+
+                <fieldset class="gender-fieldset">
+                    <legend>Gender</legend>
+
+                    <div class="gender" role="radiogroup" aria-describedby="genderError">
+                        <label for="male">
+                            <input type="radio" id="male" name="gender" value="Male" required>
+                            Male
+                        </label>
+
+                        <label for="female">
+                            <input type="radio" id="female" name="gender" value="Female">
+                            Female
+                        </label>
+
+                        <label for="other">
+                            <input type="radio" id="other" name="gender" value="Other">
+                            Other
+                        </label>
+                    </div>
+                    <div class="field-error" id="genderError" aria-live="polite"></div>
+                </fieldset>
+
+                <div class="field-group terms-group">
+                    <label class="checkbox-label" for="terms">
+                        <input type="checkbox" id="terms" name="terms" required aria-describedby="termsError">
+                        I agree to the terms and conditions.
+                    </label>
+                    <div class="field-error" id="termsError" aria-live="polite"></div>
+                </div>
+
+                <div class="buttons">
+                    <button type="submit" class="btn">Register</button>
+                    <button type="reset" class="btn btn-secondary">Reset</button>
+                </div>
+
+                <div id="formSuccess" class="success-message" aria-live="polite" hidden></div>
+
+            </div>
+
+        </fieldset>
+
+    </form>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 CHARUSAT University. All Rights Reserved.</p>
+</footer>
+
+<script src="js/validation.js" defer></script>
+<script type="module" src="js/location_dependent.js"></script>
+<script src="js/theme.js" defer></script>
+<script src="js/hamburger.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                const savedTheme = localStorage.getItem('charusat-theme');
+                document.documentElement.setAttribute('data-theme', savedTheme === 'dark' ? 'dark' : 'light');
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        }());
+    </script>
+    <title>Student Dashboard | StudentHub Portal</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <div class="nav-controls">
+        <button class="theme-toggle" type="button" aria-label="Switch theme">Dark Theme</button>
+        <button class="hamburger-menu" type="button" aria-expanded="false" aria-label="Open navigation menu" aria-controls="main-nav">☰</button>
+    </div>
+    <h1>Student Dashboard</h1>
+</header>
+<nav id="main-nav">
+    <div class="nav-wrap">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="dashboard.html" aria-current="page">Dashboard</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="admin.html">Admin</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+    </div>
+</nav>
+<main>
+    <div class="container page-container">
+        <div class="page-intro dashboard-intro">
+            <div>
+                <p class="eyebrow">STUDENT AREA</p>
+                <h2>Welcome back, Kush</h2>
+                <p>Here is a quick look at your student information and useful links.</p>
+            </div>
+            <a class="btn btn-secondary" href="profile.html">View My Profile</a>
+        </div>
+        <section class="dashboard-summary">
+            <div class="summary-item"><span class="summary-label">Student</span><strong>Kush Godhaviya</strong><small>25CE030</small></div>
+            <div class="summary-item"><span class="summary-label">Programme</span><strong>B.Tech Computer Engineering</strong><small>Semester 3</small></div>
+            <div class="summary-item"><span class="summary-label">Attendance</span><strong>85%</strong><small>34 of 40 classes attended</small></div>
+        </section>
+        <div class="grid dashboard-content">
+            <section class="card">
+                <div class="section-heading"><h2>Current subjects</h2><span class="small-note">Semester 3</span></div>
+                <ul class="subject-list">
+                    <li><span>Data Structures and Algorithms</span><span class="subject-tag">DSA</span></li>
+                    <li><span>Computer Networks</span><span class="subject-tag">CN</span></li>
+                    <li><span>Discrete Mathematics</span><span class="subject-tag">DM</span></li>
+                    <li><span>Object-Oriented Programming</span><span class="subject-tag">OOP</span></li>
+                    <li><span>Web Development Frameworks</span><span class="subject-tag">WDF</span></li>
+                </ul>
+            </section>
+            <section class="card">
+                <h2>Quick links</h2>
+                <div class="quick-links">
+                    <a href="profile.html"><strong>My profile</strong><span>View personal and academic details</span></a>
+                    <a href="events.html"><strong>Campus events</strong><span>Browse event information</span></a>
+                    <a href="students.html"><strong>Student directory</strong><span>View the sample student list</span></a>
+                    <a href="feedback.html"><strong>Give feedback</strong><span>Share comments about the portal</span></a>
+                </div>
+            </section>
+        </div>
+        <p class="demo-note">Note: This dashboard is a project demo. Attendance and student details are sample values, not live university records.</p>
+    </div>
+</main>
+<footer><p>&copy; 2026 StudentHub Portal | CHARUSAT</p></footer>
+<script src="js/theme.js" defer></script>
+<script src="js/hamburger.js" defer></script>
+</body>
+</html>

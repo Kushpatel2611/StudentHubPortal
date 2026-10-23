@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - CHARUSAT</title>
+    <script>
+        (function () {
+            try {
+                var savedTheme = localStorage.getItem('charusat-theme');
+                var theme = savedTheme === 'dark' ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        }());
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="notification-banner" role="status" aria-live="polite">
+    <span>Need quick help? Explore the student guidance section below.</span>
+    <button class="notification-close" type="button" aria-label="Close notification">×</button>
+</div>
+
+<header>
+    <div class="nav-controls">
+        <button class="theme-toggle" type="button" aria-label="Switch to dark theme">Dark Theme</button>
+        <button class="hamburger-menu" type="button" aria-expanded="false" aria-label="Open navigation menu" aria-controls="main-nav">☰</button>
+    </div>
+    <h1>Frequently Asked Questions</h1>
+</header>
+
+<nav id="main-nav">
+    <div class="nav-wrap">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="admin.html">Admin</a></li>
+            <li><a href="faq.html" aria-current="page">FAQ</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main>
+    <div class="container">
+        <section class="card">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="toolbar" aria-live="polite">
+                <div class="field-group compact">
+                    <label for="faqSearch">Search</label>
+                    <input id="faqSearch" type="search" placeholder="Search FAQs">
+                </div>
+
+                <div class="field-group compact">
+                    <label for="faqCategory">Category</label>
+                    <select id="faqCategory">
+                        <option value="">All categories</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="faqList" class="results-list faq-list" aria-live="polite"></div>
+        </section>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2026 CHARUSAT University. All Rights Reserved.</p>
+</footer>
+
+<script type="module" src="js/faq_page.js"></script>
+<script src="js/theme.js" defer></script>
+<script src="js/hamburger.js" defer></script>
+<script src="js/banner.js" defer></script>
+</body>
+</html>

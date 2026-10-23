@@ -1,0 +1,17 @@
+[
+  {"id":1,"name":"Aarav Patel","course":"Computer Science","year":1,"email":"aarav.patel@example.com"},
+  {"id":2,"name":"Diya Shah","course":"Information Technology","year":2,"email":"diya.shah@example.com"},
+  {"id":3,"name":"Karan Mehta","course":"Mechanical Engineering","year":1,"email":"karan.mehta@example.com"},
+  {"id":4,"name":"Pooja Joshi","course":"Computer Science","year":3,"email":"pooja.joshi@example.com"},
+  {"id":5,"name":"Rohan Iyer","course":"Civil Engineering","year":2,"email":"rohan.iyer@example.com"},
+  {"id":6,"name":"Meera Gupta","course":"Computer Science","year":1,"email":"meera.gupta@example.com"},
+  {"id":7,"name":"Vikram Singh","course":"Information Technology","year":4,"email":"vikram.singh@example.com"},
+  {"id":8,"name":"Nisha Kumar","course":"Civil Engineering","year":3,"email":"nisha.kumar@example.com"},
+  {"id":9,"name":"Yash Verma","course":"Mechanical Engineering","year":2,"email":"yash.verma@example.com"},
+  {"id":10,"name":"Sana Ali","course":"Computer Science","year":2,"email":"sana.ali@example.com"},
+  {"id":11,"name":"Dhruv Rao","course":"Information Technology","year":1,"email":"dhruv.rao@example.com"},
+  {"id":12,"name":"Ishita Roy","course":"Civil Engineering","year":1,"email":"ishita.roy@example.com"},
+  {"id":13,"name":"Aditya Nair","course":"Mechanical Engineering","year":3,"email":"aditya.nair@example.com"},
+  {"id":14,"name":"Tanya Malhotra","course":"Computer Science","year":4,"email":"tanya.malhotra@example.com"},
+  {"id":15,"name":"Pranav Desai","course":"Information Technology","year":3,"email":"pranav.desai@example.com"}
+]

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>try { document.documentElement.setAttribute('data-theme', localStorage.getItem('charusat-theme') === 'dark' ? 'dark' : 'light'); } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }</script>
+    <title>StudentHub Portal | StudentHub Portal</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header><h1>StudentHub Portal</h1><div class="nav-controls"><button class="theme-toggle" type="button" aria-label="Switch theme">Dark Theme</button><button class="hamburger-menu" type="button" aria-expanded="false" aria-label="Open navigation menu" aria-controls="main-nav">☰</button></div></header>
+<nav id="main-nav"><div class="nav-wrap"><ul>
+            <li><a href="index.html" aria-current="page">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="admin.html">Admin</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+</ul></div></nav>
+<div class="notification-banner" role="status" aria-live="polite" id="homeNotice">
+    <span>Welcome to StudentHub! Explore campus updates and student resources.</span>
+    <button class="notification-close" type="button" aria-label="Close notification">×</button>
+</div>
+
+<main>
+    <div class="container page-container simple-page">
+        <section class="simple-page-heading">
+            <h2>Welcome to StudentHub Portal</h2>
+            <p>A simple place to access student information, campus events, and useful college links.</p>
+        </section>
+
+        <section class="card practical4-section" aria-labelledby="campusHighlightsTitle">
+            <div class="section-heading-row">
+                <div><h2 id="campusHighlightsTitle">Campus Highlights</h2><p>Explore what StudentHub has to offer.</p></div>
+                <button class="btn" type="button" data-open-modal>About StudentHub</button>
+            </div>
+            <div class="slider" aria-label="Campus highlights slider">
+                <div class="slider-track">
+                    <article class="slide is-active" aria-hidden="false"><img class="slide-image" src="assets/campus.svg" alt="Campus information"><div class="slide-caption"><h3>Campus Life</h3><p>Stay connected with student resources and campus information.</p></div></article>
+                    <article class="slide" aria-hidden="true"><img class="slide-image" src="assets/events.svg" alt="College events"><div class="slide-caption"><h3>College Events</h3><p>Discover activities, workshops, and upcoming events.</p></div></article>
+                    <article class="slide" aria-hidden="true"><img class="slide-image" src="assets/lab.svg" alt="Learning and labs"><div class="slide-caption"><h3>Learning Resources</h3><p>Find helpful links for your academic journey.</p></div></article>
+                </div>
+                <div class="slider-controls">
+                    <button class="slider-button" type="button" data-direction="prev" aria-label="Previous slide">‹</button>
+                    <div class="slider-dots" role="tablist" aria-label="Choose campus highlight">
+                        <button class="slider-dot is-active" type="button" role="tab" aria-label="Slide 1" aria-selected="true"></button>
+                        <button class="slider-dot" type="button" role="tab" aria-label="Slide 2" aria-selected="false" tabindex="-1"></button>
+                        <button class="slider-dot" type="button" role="tab" aria-label="Slide 3" aria-selected="false" tabindex="-1"></button>
+                    </div>
+                    <button class="slider-button" type="button" data-direction="next" aria-label="Next slide">›</button>
+                </div>
+            </div>
+        </section>
+        <section class="simple-link-grid" aria-label="Main student links">
+            <a class="card simple-link-card" href="dashboard.html"><h3>Dashboard</h3><p>View your academic overview.</p><span>Open dashboard →</span></a>
+            <a class="card simple-link-card" href="events.html"><h3>College Events</h3><p>Find event details and dates.</p><span>View events →</span></a>
+            <a class="card simple-link-card" href="students.html"><h3>Student Directory</h3><p>Browse the sample student list.</p><span>View students →</span></a>
+        </section>
+        <section class="card simple-section">
+            <h3>Quick Links</h3>
+            <ul class="simple-service-list">
+                <li><a href="profile.html">My Profile</a></li>
+                <li><a href="register.html">Student Registration</a></li>
+                <li><a href="faq.html">FAQs</a></li>
+                <li><a href="feedback.html">Send Feedback</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </section>
+        <p class="project-note">StudentHub Portal is a student project. Information shown in sample sections is for demonstration.</p>
+    </div>
+</main>
+<footer><p>&copy; 2026 CHARUSAT StudentHub Portal</p></footer>
+<div class="modal" role="dialog" aria-modal="true" aria-labelledby="studentHubModalTitle" aria-hidden="true" hidden>
+    <div class="modal-dialog">
+        <div class="modal-header"><h2 id="studentHubModalTitle">About StudentHub</h2><button class="close-modal" type="button" data-close-modal aria-label="Close popup">×</button></div>
+        <p>StudentHub Portal brings useful student links, academic information, campus events, and support resources together in one place.</p>
+        <p>This modal is an interactive JavaScript component for Practical 4.</p>
+        <button class="btn" type="button" data-close-modal>Got it</button>
+    </div>
+</div>
+<script src="js/theme.js" defer></script><script src="js/hamburger.js" defer></script>
+<script src="js/modal.js" defer></script><script src="js/slider.js" defer></script><script src="js/banner.js" defer></script>
+</body></html>

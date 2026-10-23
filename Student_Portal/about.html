@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                const savedTheme = localStorage.getItem('charusat-theme');
+                document.documentElement.setAttribute('data-theme', savedTheme === 'dark' ? 'dark' : 'light');
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        }());
+    </script>
+    <title>About | StudentHub Portal</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <div class="nav-controls">
+        <button class="theme-toggle" type="button" aria-label="Switch theme">Dark Theme</button>
+        <button class="hamburger-menu" type="button" aria-expanded="false" aria-label="Open navigation menu" aria-controls="main-nav">☰</button>
+    </div>
+    <h1>About CHARUSAT</h1>
+</header>
+<nav id="main-nav">
+    <div class="nav-wrap">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" aria-current="page">About</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="admin.html">Admin</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+    </div>
+</nav>
+<main>
+    <div class="container page-container">
+        <div class="page-intro">
+            <p class="eyebrow">ABOUT</p>
+            <h2>About CHARUSAT</h2>
+            <p>Charotar University of Science and Technology (CHARUSAT) is located in Changa, Gujarat. It offers undergraduate, postgraduate and doctoral programmes in different fields.</p>
+        </div>
+        <section class="card about-section">
+            <h2>About this StudentHub Portal</h2>
+            <p>This portal is a college project made to bring common student information into one place. Students can browse campus information, check events, view a sample profile and use the registration and feedback pages.</p>
+            <p>The pages use HTML and CSS for the layout, JavaScript for interactive parts, and JSON files for sample event, student and FAQ data.</p>
+        </section>
+        <div class="grid about-columns">
+            <section class="card">
+                <h3>What you can find here</h3>
+                <ul class="plain-list">
+                    <li>Student dashboard and profile details</li>
+                    <li>Upcoming campus events</li>
+                    <li>Student directory with search options</li>
+                    <li>Frequently asked questions and feedback</li>
+                </ul>
+            </section>
+            <section class="card">
+                <h3>Project note</h3>
+                <p>This is a front-end demonstration. The displayed student details are sample data, and forms are not connected to a university database.</p>
+                <a class="btn" href="index.html">Go to Home</a>
+            </section>
+        </div>
+    </div>
+</main>
+<footer><p>&copy; 2026 StudentHub Portal | CHARUSAT</p></footer>
+<script src="js/theme.js" defer></script>
+<script src="js/hamburger.js" defer></script>
+</body>
+</html>

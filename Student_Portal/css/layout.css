@@ -1,0 +1,353 @@
+.password-strength.weak {
+    background: rgba(217, 48, 37, 0.1);
+    color: #d93025;
+}
+
+.password-strength.medium {
+    background: rgba(245, 158, 11, 0.12);
+    color: #b45309;
+}
+
+.password-strength.strong {
+    background: rgba(22, 163, 74, 0.12);
+    color: #15803d;
+}
+
+.gender-fieldset {
+    padding-top: 0.75rem;
+}
+
+.gender {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.gender label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.gender input[type="radio"] {
+    width: auto;
+    margin: 0;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+}
+
+.success-message {
+    background: rgba(22, 163, 74, 0.12);
+    color: #166534;
+    border: 1px solid rgba(22, 163, 74, 0.4);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-weight: 700;
+}
+
+.btn-secondary {
+    background: #e5e7eb;
+    color: #111827;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+    background: #d1d5db;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.gender {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.gender label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.gender input[type="radio"] {
+    width: auto;
+    margin: 0;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.buttons input,
+.buttons button {
+    flex: 1;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.info-box {
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.dashboard-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.dashboard-panel {
+    min-height: 100%;
+}
+
+.info {
+    display: grid;
+    gap: 0.75rem;
+}
+
+ul,
+ol {
+    line-height: 1.8;
+}
+
+footer {
+    background: var(--primary);
+    color: #ffffff;
+    text-align: center;
+    padding: 1rem;
+}
+
+footer p {
+    color: #ffffff;
+    margin: 0;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+}
+
+.nav-controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.theme-toggle,
+.hamburger-menu,
+.notification-close,
+.slider-button,
+.slider-dot {
+    cursor: pointer;
+}
+
+.theme-toggle {
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 999px;
+    padding: 0.5rem 0.85rem;
+}
+
+.hamburger-menu {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 2.7rem;
+    height: 2.7rem;
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.nav-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+nav ul.is-open {
+    display: flex;
+}
+
+.notification-banner {
+    background: var(--banner-bg);
+    color: var(--banner-text);
+    padding: 0.75rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.notification-banner[hidden] {
+    display: none;
+}
+
+.notification-close {
+    background: transparent;
+    border: none;
+    color: inherit;
+    font-size: 1.4rem;
+    line-height: 1;
+}
+
+.faq-wrapper {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.faq-item {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+    overflow: hidden;
+}
+
+.faq-question {
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: var(--text);
+    font-weight: 700;
+    text-align: left;
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.faq-question::after {
+    content: '+';
+    color: var(--primary);
+    font-size: 1.25rem;
+}
+
+.faq-question.is-open::after {
+    content: '-';
+}
+
+.faq-answer {
+    padding: 0 1.25rem 1rem;
+    color: var(--text);
+}
+
+.faq-answer[hidden] {
+    display: none;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    z-index: 10;
+}
+
+.modal[hidden] {
+    display: none;
+}
+
+.modal-dialog {
+    width: min(520px, 100%);
+    background: var(--surface);
+    color: var(--text);
+    border-radius: 12px;
+    box-shadow: 0 12px 30px var(--shadow);
+    padding: 1.5rem;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.close-modal {
+    border: none;
+    background: transparent;
+    color: var(--text);
+    font-size: 1.5rem;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+.slider {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+}
+
+.slider-track {
+    position: relative;
+    min-height: 320px;
+}
+
+.slide {
+    display: none;
+    position: relative;
+    min-height: 320px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.slide.is-active {
+    display: flex;
+}
+
+/* Keep FAQ accordion questions clear and keyboard-friendly. */
+.faq-card .faq-question { width: 100%; border: 0; border-radius: 8px; background: transparent; color: var(--text); text-align: left; padding: .75rem 0; font: inherit; font-weight: 700; display: flex; align-items: center; justify-content: space-between; gap: .75rem; cursor: pointer; }
+.faq-card .faq-question::after { content: '+'; color: var(--primary); font-size: 1.25rem; }
+.faq-card .faq-question.is-open::after { content: '−'; }
+.faq-card .faq-answer { padding: .25rem 0 .5rem; }
+.faq-card .faq-answer p { margin: 0; }

@@ -1,0 +1,315 @@
+.slide-image {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+}
+
+.slide-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 23, 42, 0.5);
+    color: #ffffff;
+    padding: 0.75rem 1rem;
+}
+
+.slider-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem 1rem;
+}
+
+.slider-button {
+    background: var(--primary);
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.2rem;
+}
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.slider-dot {
+    width: 12px;
+    height: 12px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.slider-dot.is-active {
+    background: var(--primary);
+}
+
+.card,
+.btn,
+button,
+input,
+textarea,
+select {
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+@media (max-width: 767px) {
+    .hamburger-menu {
+        display: flex;
+    }
+
+    nav ul {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul.is-open {
+        display: flex;
+    }
+
+    nav ul li a {
+        padding: 0.75rem 1rem;
+    }
+}
+
+@media (min-width: 768px) {
+    nav ul {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    nav ul li a {
+        padding: 0.9rem 1rem;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .home-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .buttons {
+        flex-direction: row;
+    }
+
+    .info-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dashboard-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 992px) {
+    main {
+        padding: 1.5rem;
+    }
+
+    .grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .dashboard-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .info-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 767px) {
+    table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .container {
+        width: min(100%, 1100px);
+    }
+}
+
+/* ==========================================================
+   LOGIN PAGE (login.html only)
+   Mobile first: the logo panel sits above the form.
+   From 768px the two panels sit side by side.
+   ========================================================== */
+
+.login-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 6rem);
+    padding: 1rem;
+    background: linear-gradient(160deg, var(--surface-alt) 0%, var(--bg) 100%);
+}
+
+html[data-theme="dark"] .login-page {
+    background: linear-gradient(160deg, var(--surface-alt) 0%, var(--bg) 100%);
+}
+
+.login-box {
+    width: 100%;
+    max-width: 440px;
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 6px 20px var(--shadow);
+    overflow: hidden;
+}
+
+.login-logo {
+    background: var(--primary);
+    text-align: center;
+    padding: 1.5rem 1rem;
+}
+
+.login-logo img {
+    width: 140px;
+    margin: 0 auto 0.75rem;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 0.5rem;
+}
+
+.login-logo p {
+    margin: 0;
+    color: #ffffff;
+}
+
+.login-logo .brand-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.login-content {
+    padding: 1.5rem 1.25rem;
+}
+
+.login-content h1 {
+    margin: 0 0 0.25rem;
+    font-size: clamp(1.5rem, 4vw, 1.9rem);
+    color: var(--primary);
+}
+
+.login-intro {
+    margin: 0 0 1rem;
+    color: var(--muted);
+}
+
+.login-content fieldset {
+    min-width: 0;
+    border: 1px solid var(--border);
+}
+
+.login-form {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    min-height: 44px;
+    margin-bottom: 0.5rem;
+    background: var(--surface);
+    color: var(--text);
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+    border-color: var(--primary);
+}
+
+.login-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.login-options .remember {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    font-weight: 500;
+}
+
+.login-options .remember input {
+    width: auto;
+    margin: 0;
+}
+
+.login-button {
+    width: 100%;
+    min-height: 44px;
+    background: var(--primary);
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.login-button:hover,
+.login-button:focus-visible {
+    background: var(--primary-dark);
+}
+
+.register-link,
+.home-link {
+    margin: 1rem 0 0;
+    text-align: center;
+}
+
+.home-link {
+    margin-top: 0.5rem;
+}
+
+html[data-theme="dark"] .login-box,
+html[data-theme="dark"] .login-content fieldset,
+html[data-theme="dark"] .login-form input[type="text"],
+html[data-theme="dark"] .login-form input[type="password"] {
+    background: var(--surface);
+    border-color: var(--border);
+    color: var(--text);
+}
+
+@media (min-width: 768px) {
+    .login-box {
+        max-width: 860px;
+        flex-direction: row;
+    }
+
+    .login-logo {
+        flex: 0 0 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 2rem 1.5rem;
+    }
+
+    .login-content {
+        flex: 1;
+        padding: 2rem;
+    }
+}

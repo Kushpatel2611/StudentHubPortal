@@ -1,0 +1,24 @@
+[
+  {
+    "country": "India",
+    "states": [
+      {"state": "Gujarat", "cities": ["Ahmedabad", "Surat", "Vadodara", "Rajkot"]},
+      {"state": "Maharashtra", "cities": ["Mumbai", "Pune", "Nagpur", "Nashik"]},
+      {"state": "Delhi", "cities": ["New Delhi", "Dwarka", "Rohini", "Saket"]}
+    ]
+  },
+  {
+    "country": "United States",
+    "states": [
+      {"state": "California", "cities": ["Los Angeles", "San Diego", "San Francisco", "Sacramento"]},
+      {"state": "Texas", "cities": ["Austin", "Dallas", "Houston", "San Antonio"]}
+    ]
+  },
+  {
+    "country": "United Kingdom",
+    "states": [
+      {"state": "England", "cities": ["London", "Manchester", "Birmingham", "Leeds"]},
+      {"state": "Scotland", "cities": ["Edinburgh", "Glasgow", "Aberdeen", "Dundee"]}
+    ]
+  }
+]

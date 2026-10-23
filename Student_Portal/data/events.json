@@ -1,0 +1,17 @@
+[
+  {"id":1,"title":"Campus Freshers Meetup","category":"Campus","date":"2026-11-02","venue":"Main Auditorium","status":"open","description":"A welcome event for first-year students with faculty introductions and activities."},
+  {"id":2,"title":"Hackathon Sprint","category":"Tech","date":"2026-11-05","venue":"Innovation Lab","status":"open","description":"A 12-hour coding event focused on problem solving and teamwork."},
+  {"id":3,"title":"Cultural Night","category":"Cultural","date":"2026-11-08","venue":"Open Stage","status":"closed","description":"Students perform music, dance, and theatrical acts in one evening showcase."},
+  {"id":4,"title":"Career Guidance Workshop","category":"Career","date":"2026-11-10","venue":"Seminar Hall A","status":"open","description":"Experts share guidance on internships, resume building, and placements."},
+  {"id":5,"title":"Sports Day","category":"Sports","date":"2026-11-12","venue":"Athletics Ground","status":"open","description":"A university-wide sports event with campus teams competing in multiple games."},
+  {"id":6,"title":"Robotics Demo","category":"Tech","date":"2026-11-14","venue":"Engineering Block","status":"open","description":"A live demonstration of student robotics projects and prototyping ideas."},
+  {"id":7,"title":"Art Exhibition","category":"Cultural","date":"2026-11-18","venue":"Gallery Hall","status":"closed","description":"A display of student-made paintings, murals, and creative projects."},
+  {"id":8,"title":"Alumni Talk Series","category":"Career","date":"2026-11-20","venue":"Conference Room","status":"open","description":"Former students share their career journeys and industry experiences."},
+  {"id":9,"title":"Health Awareness Camp","category":"Wellness","date":"2026-11-22","venue":"Student Center","status":"open","description":"A campus camp focusing on fitness, nutrition, and healthy habits."},
+  {"id":10,"title":"Startup Pitch Fest","category":"Innovation","date":"2026-11-25","venue":"Business Hub","status":"open","description":"Student entrepreneurs present startup concepts and business plans to mentors."},
+  {"id":11,"title":"Music Fest","category":"Cultural","date":"2026-11-27","venue":"Amphitheatre","status":"open","description":"A student music festival with acoustic performances and band sets."},
+  {"id":12,"title":"Research Poster Day","category":"Academic","date":"2026-11-29","venue":"Research Center","status":"closed","description":"Students present research posters and prototypes before faculty reviewers."},
+  {"id":13,"title":"Coding Bootcamp","category":"Tech","date":"2026-12-02","venue":"Computer Lab 2","status":"open","description":"A practical coding bootcamp for beginner and intermediate programming students."},
+  {"id":14,"title":"Volunteer Drive","category":"Community","date":"2026-12-04","venue":"Campus Gate","status":"open","description":"Students participate in an outreach program supporting local community work."},
+  {"id":15,"title":"Placement Prep Seminar","category":"Career","date":"2026-12-06","venue":"Main Hall","status":"open","description":"A guided session on aptitude practice, interview prep, and placement readiness."}
+]

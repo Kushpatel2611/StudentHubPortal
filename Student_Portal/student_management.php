@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/auth.php';
 requireRole('admin');
+require_once __DIR__ . '/layout.php';
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -10,13 +11,7 @@ if (empty($_SESSION['student_csrf'])) {
     $_SESSION['student_csrf'] = bin2hex(random_bytes(32));
 }
 
-$mysqli = new mysqli('127.0.0.1', 'root', '', 'studenthub');
-
-if ($mysqli->connect_error) {
-    die('Database connection failed.');
-}
-
-$mysqli->set_charset('utf8mb4');
+$mysqli = sh_connect_mysqli();
 
 $message = '';
 $messageType = 'success';
@@ -76,6 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($stmt->execute()) {
             $stmt->close();
+            sh_audit($pdo, 'student_added', 'Added student ' . $studentCode . ' (' . $fullName . ')');
             redirectWithMessage('Student added successfully.');
         }
 
@@ -131,6 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($stmt->execute()) {
             $stmt->close();
+            sh_audit($pdo, 'student_updated', 'Updated student ID ' . $studentId . ' (' . $studentCode . ')');
             redirectWithMessage('Student updated successfully.');
         }
 
@@ -172,6 +169,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($stmt->execute() && $stmt->affected_rows > 0) {
             $stmt->close();
+
+            sh_audit($pdo, $action === 'delete' ? 'student_deleted' : 'student_restored', 'Student ID ' . $studentId);
 
             if ($action === 'delete') {
                 redirectWithMessage('Student moved to deleted records.');
@@ -325,236 +324,9 @@ function pageUrl($pageNumber) {
 
     return '?' . http_build_query($query);
 }
+admin_shell_start('Students', 'students', 'Add, edit, search, delete and restore student records (server-side form version).');
+admin_students_tabs('standard');
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Student Management | StudentHub</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f1f5f9;
-            color: #1e293b;
-        }
-
-        header {
-            background: #0b40ef;
-            color: white;
-            padding: 22px;
-            text-align: center;
-        }
-
-        nav {
-            background: #e75d1d;
-            padding: 12px;
-            text-align: center;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 12px;
-            font-weight: bold;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 25px auto;
-            padding: 0 15px;
-        }
-
-        .card {
-            background: white;
-            padding: 22px;
-            margin-bottom: 22px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px #00000012;
-        }
-
-        h2 {
-            margin-top: 0;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 15px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 6px;
-            font-weight: bold;
-        }
-
-        input, select {
-            width: 100%;
-            padding: 11px;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
-        }
-
-        button, .button {
-            display: inline-block;
-            border: none;
-            padding: 10px 14px;
-            border-radius: 6px;
-            color: white;
-            background: #0b40ef;
-            cursor: pointer;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        .green {
-            background: #15803d;
-        }
-
-        .orange {
-            background: #c2410c;
-        }
-
-        .red {
-            background: #b91c1c;
-        }
-
-        .gray {
-            background: #475569;
-        }
-
-        .message {
-            padding: 13px;
-            margin-bottom: 20px;
-            border-radius: 6px;
-        }
-
-        .success {
-            background: #dcfce7;
-            color: #166534;
-        }
-
-        .error {
-            background: #fee2e2;
-            color: #991b1b;
-        }
-
-        .search-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr auto;
-            gap: 10px;
-            align-items: end;
-        }
-
-        .table-wrapper {
-            overflow-x: auto;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 850px;
-        }
-
-        th, td {
-            border-bottom: 1px solid #e2e8f0;
-            padding: 12px;
-            text-align: left;
-        }
-
-        th {
-            background: #eaf0ff;
-        }
-
-        .status {
-            padding: 5px 9px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        .active-status {
-            background: #dcfce7;
-            color: #166534;
-        }
-
-        .deleted-status {
-            background: #fee2e2;
-            color: #991b1b;
-        }
-
-        .actions {
-            display: flex;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .actions form {
-            margin: 0;
-        }
-
-        .pagination {
-            margin-top: 20px;
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .pagination a {
-            padding: 8px 12px;
-            background: #e2e8f0;
-            color: #1e293b;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        .pagination a.current {
-            background: #0b40ef;
-            color: white;
-        }
-
-        .muted {
-            color: #64748b;
-        }
-
-        @media (max-width: 700px) {
-            .form-grid,
-            .search-grid {
-                grid-template-columns: 1fr;
-            }
-
-            nav a {
-                display: inline-block;
-                margin: 5px;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-<header>
-    <h1>StudentHub Portal</h1>
-    <p>Student Management System</p>
-</header>
-
-<nav>
-    <a href="index.php">Home</a>
-    <a href="dashboard.php">Dashboard</a>
-    <a href="student_management.php">Manage Students</a>
-    <a href="logout.php">Logout</a>
-</nav>
-
-<div class="container">
 
     <?php if ($message !== ''): ?>
         <div class="message <?= $messageType === 'error' ? 'error' : 'success' ?>">
@@ -859,10 +631,8 @@ function pageUrl($pageNumber) {
 
     </section>
 
-</div>
+<?php admin_shell_end(); ?>
 
-</body>
-</html>
 
 <?php
 $mysqli->close();

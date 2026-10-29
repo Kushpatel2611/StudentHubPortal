@@ -1,179 +1,17 @@
-
 <?php
 require_once __DIR__ . '/auth.php';
 requireRole('admin');
+require_once __DIR__ . '/layout.php';
 
 if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
 
 $csrfToken = $_SESSION['csrf_token'];
+
+admin_shell_start('Students', 'students', 'Add, edit, delete and search students without reloading the page (AJAX version).');
+admin_students_tabs('ajax');
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Management - Practical 13</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 30px;
-            background: #f4f6f9;
-            color: #222;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        h1 {
-            color: #164477;
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            color: #555;
-            margin-bottom: 25px;
-        }
-
-        .panel {
-            background: white;
-            padding: 22px;
-            margin-bottom: 22px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-        }
-
-        h2 {
-            margin-top: 0;
-            color: #222;
-        }
-
-        .form-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 12px;
-        }
-
-        input {
-            padding: 12px;
-            border: 1px solid #bbb;
-            border-radius: 4px;
-            font-size: 14px;
-            width: 230px;
-            max-width: 100%;
-        }
-
-        input:focus {
-            outline: 2px solid #b8d0ff;
-            border-color: #164bb5;
-        }
-
-        button {
-            padding: 10px 15px;
-            margin: 3px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            background: #164bb5;
-            color: white;
-            font-size: 14px;
-        }
-
-        button:hover {
-            background: #103a8c;
-        }
-
-        button.delete {
-            background: #b42318;
-        }
-
-        button.delete:hover {
-            background: #8f1c13;
-        }
-
-        button.secondary {
-            background: #666;
-        }
-
-        button:disabled {
-            opacity: 0.6;
-            cursor: wait;
-        }
-
-        .message {
-            margin: 15px 0;
-            min-height: 20px;
-        }
-
-        .success {
-            color: #187344;
-        }
-
-        .error {
-            color: #b42318;
-        }
-
-        .table-wrap {
-            overflow-x: auto;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-        }
-
-        th,
-        td {
-            padding: 12px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
-
-        th {
-            background: #e7edf7;
-        }
-
-        tr:hover {
-            background: #f8faff;
-        }
-
-        #search {
-            width: 350px;
-        }
-
-        @media (max-width: 600px) {
-            body {
-                padding: 15px;
-            }
-
-            input,
-            #search {
-                width: 100%;
-            }
-        }
-    </style>
-</head>
-
-<body>
-<div class="container">
-
-    <h1>Student Management — Practical 13</h1>
-
-    <p class="subtitle">
-        Add, view, update, delete, and search students without reloading the page.
-    </p>
-
     <div class="panel">
         <h2 id="formTitle">Add New Student</h2>
 
@@ -268,8 +106,6 @@ $csrfToken = $_SESSION['csrf_token'];
             </table>
         </div>
     </div>
-
-</div>
 
 <script>
 const API_URL = 'api/students.php';
@@ -545,6 +381,5 @@ searchInput.addEventListener('input', () => {
 // Load the initial list.
 loadStudents();
 </script>
+<?php admin_shell_end(); ?>
 
-</body>
-</html>

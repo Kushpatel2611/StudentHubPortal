@@ -1,8 +1,8 @@
-
 <?php
 header('Content-Type: application/json; charset=utf-8');
 
 require_once __DIR__ . '/../auth.php';
+require_once __DIR__ . '/../layout.php';
 
 function sendJson(int $code, array $data): void
 {
@@ -11,21 +11,25 @@ function sendJson(int $code, array $data): void
     exit;
 }
 
-// Check login and session timeout.
-if (empty($_SESSION['user_id'])) {
-    sendJson(401, ['success' => false, 'message' => 'Please log in first.']);
-}
+$method = $_SERVER['REQUEST_METHOD'];
 
-if (time() - ($_SESSION['last_activity'] ?? 0) > SESSION_TIMEOUT) {
-    logoutUser($pdo);
-    sendJson(401, ['success' => false, 'message' => 'Session expired. Please log in again.']);
-}
+// Modifying operations (POST) strictly require authenticated admin session
+if ($method !== 'GET') {
+    if (empty($_SESSION['user_id'])) {
+        sendJson(401, ['success' => false, 'message' => 'Please log in first.']);
+    }
 
-$_SESSION['last_activity'] = time();
+    if (time() - ($_SESSION['last_activity'] ?? 0) > SESSION_TIMEOUT) {
+        logoutUser($pdo);
+        sendJson(401, ['success' => false, 'message' => 'Session expired. Please log in again.']);
+    }
 
-// Only admins can use this API.
-if (($_SESSION['role'] ?? '') !== 'admin') {
-    sendJson(403, ['success' => false, 'message' => 'Admin access required.']);
+    $_SESSION['last_activity'] = time();
+
+    // Only admins can modify student records via this API
+    if (($_SESSION['role'] ?? '') !== 'admin') {
+        sendJson(403, ['success' => false, 'message' => 'Admin access required.']);
+    }
 }
 
 function validText($value, int $maxLength): bool
@@ -34,8 +38,6 @@ function validText($value, int $maxLength): bool
         && trim($value) !== ''
         && mb_strlen(trim($value)) <= $maxLength;
 }
-
-$method = $_SERVER['REQUEST_METHOD'];
 
 try {
     // GET: list students and search.
@@ -119,6 +121,7 @@ try {
             throw $e;
         }
 
+        sh_audit($pdo, 'student_added', 'Added student ' . $code . ' (' . $name . ') via AJAX');
         sendJson(201, ['success' => true, 'message' => 'Student added successfully.']);
     }
 
@@ -166,6 +169,7 @@ try {
             }
         }
 
+        sh_audit($pdo, 'student_updated', 'Updated student ID ' . $id . ' via AJAX');
         sendJson(200, ['success' => true, 'message' => 'Student updated successfully.']);
     }
 
@@ -187,6 +191,7 @@ try {
             sendJson(404, ['success' => false, 'message' => 'Student not found.']);
         }
 
+        sh_audit($pdo, 'student_deleted', 'Deleted student ID ' . $id . ' via AJAX');
         sendJson(200, ['success' => true, 'message' => 'Student deleted successfully.']);
     }
 

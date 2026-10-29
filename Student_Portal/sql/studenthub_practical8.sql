@@ -1,3 +1,5 @@
+-- NOTE: This is the original Practical 8 schema only. It has no users/audit_logs tables.
+-- For the full project use setup.php (keeps your data) or sql/studenthub_complete.sql.
 -- StudentHub Portal: Practical 8
 -- Import this complete file in phpMyAdmin.
 CREATE DATABASE IF NOT EXISTS studenthub

@@ -48,7 +48,7 @@ try {
                     if ($exception->getCode() === '23000') {
                         $notice = 'This student may already be registered for that event, or the selected record is invalid.';
                     } else {
-                        error_log('Practical 8 insert failed: ' . $exception->getMessage());
+                        error_log('Database Management insert failed: ' . $exception->getMessage());
                         $notice = 'Unable to save the registration. Check the database and try again.';
                     }
                     $noticeType = 'error';
@@ -101,7 +101,7 @@ try {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Practical 8 | StudentHub Portal</title>
+<title>StudentHub Database | StudentHub Portal</title>
 <style>
 :root{--blue:#174ea6;--bg:#f3f6fb;--text:#1f2937;--card:#fff;--line:#dce3ed;--muted:#64748b}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 Arial,sans-serif}
@@ -117,10 +117,10 @@ button,.button{display:inline-block;margin-top:14px;background:var(--blue);color
 <body>
 <header><h1>StudentHub Portal</h1></header>
 <nav aria-label="Main navigation">
-<a href="index.html">Home</a><a href="events.html">Events</a><a href="students.html">Students</a><a href="practical7.php">Practical 7</a><a href="practical8.php" aria-current="page">Practical 8</a>
+<a href="index.html">Home</a><a href="about.html">About</a><a href="events.html">Events</a><a href="students.html">Students</a><a href="profile.php">Profile</a><a href="contact.html">Contact</a><a href="faq.html">FAQ</a><a href="feedback.html">Feedback</a><a href="practical9.php">Register</a><a href="login.php">Login</a>
 </nav>
 <main>
-<section class="intro"><h2>Practical 8: MySQL Schema Design, PDO Connectivity &amp; Prepared Statements</h2><p>StudentHub database demonstration with students, events, and registrations.</p></section>
+<section class="intro"><h2>StudentHub Database and Registrations</h2><p>StudentHub database demonstration with students, events, and registrations.</p></section>
 <?php if ($connectionError !== ''): ?>
 <div class="alert error"><strong>Database not ready:</strong> <?=p8e($connectionError)?><br>Start MySQL in XAMPP, import <code>sql/studenthub_practical8.sql</code> in phpMyAdmin, and verify the settings in <code>db.php</code>.</div>
 <?php else: ?>
@@ -144,5 +144,5 @@ button,.button{display:inline-block;margin-top:14px;background:var(--blue);color
 </tbody></table></div></section>
 <?php endif; ?>
 <section class="card"><h3>ER model (relationship summary)</h3><ul><li><strong>Students (1) → (many) Registrations:</strong> each registration belongs to one student.</li><li><strong>Events (1) → (many) Registrations:</strong> each registration belongs to one event.</li><li><strong>Students ↔ Events:</strong> many-to-many relationship resolved through the Registrations table.</li></ul><p class="muted">Primary keys: student_id, event_id, registration_id. Foreign keys: registrations.student_id and registrations.event_id. A unique constraint prevents duplicate registrations for the same student and event.</p></section>
-</main><footer>CHARUSAT StudentHub Portal · Practical 8</footer>
+</main><footer>CHARUSAT StudentHub Portal · Database Management</footer>
 </body></html>

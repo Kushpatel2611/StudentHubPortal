@@ -72,17 +72,17 @@ if (is_readable($csvFile) && ($handle = fopen($csvFile, 'r')) !== false) {
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('charusat-theme')==='dark'?'dark':'light')}catch(e){document.documentElement.setAttribute('data-theme','light')}</script>
-<title>Practical 7 | StudentHub Portal</title><link rel="stylesheet" href="css/style.css">
+<title>Contact Form | StudentHub Portal</title><link rel="stylesheet" href="css/style.css">
 <style>
 .p7-layout{max-width:1000px;margin:2rem auto;padding:0 1rem}.p7-card{padding:1.5rem;margin-bottom:1.5rem}.p7-form{display:grid;gap:1rem}.p7-form label{display:block;font-weight:600;margin-bottom:.35rem}.p7-form input,.p7-form textarea{width:100%;padding:.75rem;border:1px solid var(--border-color,#bbb);border-radius:8px;font:inherit}.p7-form textarea{min-height:130px;resize:vertical}.p7-alert{padding:1rem;border-radius:8px;margin:1rem 0}.p7-success{background:#d9f7e5;color:#14532d}.p7-error{background:#fee2e2;color:#991b1b}.p7-table-wrap{overflow-x:auto}.p7-table{width:100%;border-collapse:collapse}.p7-table th,.p7-table td{border:1px solid #bbb;padding:.7rem;text-align:left;overflow-wrap:anywhere}.p7-table th{background:#174ea6;color:white}.p7-note{font-size:.95rem;opacity:.85}
 </style></head>
 <body>
 <header><h1>StudentHub Portal</h1><div class="nav-controls"><button class="theme-toggle" type="button" aria-label="Switch theme">Dark Theme</button><button class="hamburger-menu" type="button" aria-expanded="false" aria-label="Open navigation menu" aria-controls="main-nav">☰</button></div></header>
 <nav id="main-nav"><div class="nav-wrap"><ul>
-<li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="register.html">Register</a></li><li><a href="login.html">Login</a></li><li><a href="dashboard.html">Dashboard</a></li><li><a href="events.html">Events</a></li><li><a href="students.html">Students</a></li><li><a href="profile.html">Profile</a></li><li><a href="contact.html">Contact</a></li><li><a href="admin.html">Admin</a></li><li><a href="faq.html">FAQ</a></li><li><a href="feedback.html">Feedback</a></li><li><a href="practical7.php" aria-current="page">Practical 7</a></li>
+<li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="students.html">Students</a></li><li><a href="profile.php">Profile</a></li><li><a href="contact.html">Contact</a></li><li><a href="faq.html">FAQ</a></li><li><a href="feedback.html">Feedback</a></li><li data-auth-item><a href="practical9.php">Register</a></li><li data-auth-item><a href="login.php">Login</a></li>
 </ul></div></nav>
 <main class="p7-layout">
-<section class="card p7-card"><h2>Practical 7: Contact Form Processing</h2><p>Submit a message using PHP POST handling, server-side validation, CSRF protection, and CSV file storage.</p>
+<section class="card p7-card"><h2>Contact Us</h2><p>Submit a message using PHP POST handling, server-side validation, CSRF protection, and CSV file storage.</p>
 <?php if ($message !== ''): ?><div class="p7-alert p7-<?=e($messageType)?>" role="status" aria-live="polite"><?=e($message)?></div><?php endif; ?>
 <form class="p7-form" method="POST" action="practical7.php">
 <input type="hidden" name="csrf_token" value="<?=e($_SESSION['csrf_token'])?>">
@@ -96,5 +96,5 @@ if (is_readable($csvFile) && ($handle = fopen($csvFile, 'r')) !== false) {
 <?php if (count($records) > 1): ?><div class="p7-table-wrap"><table class="p7-table"><thead><tr><?php foreach ($records[0] as $heading): ?><th><?=e($heading)?></th><?php endforeach; ?></tr></thead><tbody><?php foreach (array_slice($records, 1) as $record): ?><tr><?php foreach ($record as $value): ?><td><?=e($value)?></td><?php endforeach; ?></tr><?php endforeach; ?></tbody></table></div><?php else: ?><p>No messages have been submitted yet.</p><?php endif; ?>
 </section>
 </main><footer><p>&copy; 2026 CHARUSAT StudentHub Portal</p></footer>
-<script src="js/theme.js" defer></script><script src="js/hamburger.js" defer></script>
+<script src="js/theme.js" defer></script><script src="js/hamburger.js" defer></script><script src="js/auth_nav.js" defer></script>
 </body></html>

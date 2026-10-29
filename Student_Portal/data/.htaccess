@@ -1,0 +1,9 @@
+Options -Indexes
+
+# Keep everything in data/ private (e.g. contact_submissions.csv)...
+Require all denied
+
+# ...except the public JSON files the Events, FAQ and Students pages load with fetch().
+<FilesMatch "\.json$">
+    Require all granted
+</FilesMatch>

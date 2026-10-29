@@ -1,0 +1,7 @@
+config.php
+.env
+data/*.lock
+data/contact_submissions.csv
+data/feedback_submissions.csv
+uploads/event_posters/*
+!uploads/event_posters/.htaccess

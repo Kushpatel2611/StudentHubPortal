@@ -1,0 +1,11 @@
+# Apache / XAMPP rules (the PHP built-in server uses router.php instead).
+Options -Indexes
+
+<FilesMatch "(^\.env.*|\.lock|\.sql|\.bat|\.sh)$">
+    Require all denied
+</FilesMatch>
+
+# Never serve the local database settings as a download.
+<Files "config.php">
+    Require all denied
+</Files>

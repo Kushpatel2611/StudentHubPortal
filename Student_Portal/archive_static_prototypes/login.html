@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <script>
+        (function () {
+            try {
+                const savedTheme = localStorage.getItem('charusat-theme');
+                const theme = savedTheme === 'dark' ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        }());
+    </script>
+
+    <title>Login | CHARUSAT Student Hub</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+    <main class="login-page">
+
+        <div class="login-box">
+
+            <div class="login-logo">
+                <img
+                    src="https://akm-img-a-in.tosshub.com/sites/resources/campus/prod/img/logo/2023/8/campuslogo2022120709060160606598529.png"
+                    alt="CHARUSAT logo">
+                <p class="brand-name">CHARUSAT</p>
+                <p>Student Hub Portal</p>
+            </div>
+
+            <div class="login-content">
+
+                <h1>Welcome Back!</h1>
+                <p class="login-intro">Login to your student account</p>
+                <form action="../login.php" method="post">
+
+                    <fieldset>
+
+                        <legend>Student Login</legend>
+
+                        <div class="login-form">
+
+                            <label for="username">Username</label>
+                            <input
+                                type="text"
+                                id="username"
+                                name="email"
+                                type="email"
+                                placeholder="Enter username"
+                                autocomplete="username"
+                                required>
+
+                            <label for="password">Password</label>
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Enter password"
+                                autocomplete="current-password"
+                                required>
+
+                            <div class="login-options">
+                                <label class="remember">
+                                    <input type="checkbox" name="remember">
+                                    Remember Me
+                                </label>
+                                <a href="../contact.html">Need help signing in?</a>
+                            </div>
+
+                            <input type="submit" value="Login" class="login-button">
+
+                        </div>
+
+                    </fieldset>
+
+                </form>
+
+                <p class="register-link">
+                    Don't have an account?
+                    <a href="../practical9.php">Register Here</a>
+                </p>
+
+                <p class="home-link">
+                    <a href="../index.html">&larr; Back to Home</a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+<script src="../js/theme.js" defer></script>
+</body>
+
+</html>

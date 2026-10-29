@@ -29,15 +29,14 @@
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html" aria-current="page">About</a></li>
-            <li><a href="register.html">Register</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="dashboard.html">Dashboard</a></li>
             <li><a href="events.html">Events</a></li>
-            <li><a href="profile.html">Profile</a></li>
+            <li><a href="students.html">Students</a></li>
+            <li><a href="profile.php">Profile</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="admin.html">Admin</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="feedback.html">Feedback</a></li>
+            <li data-auth-item><a href="practical9.php">Register</a></li>
+            <li data-auth-item><a href="login.php">Login</a></li>
         </ul>
     </div>
 </nav>
@@ -50,23 +49,23 @@
         </div>
         <section class="card about-section">
             <h2>About this StudentHub Portal</h2>
-            <p>This portal is a college project made to bring common student information into one place. Students can browse campus information, check events, view a sample profile and use the registration and feedback pages.</p>
-            <p>The pages use HTML and CSS for the layout, JavaScript for interactive parts, and JSON files for sample event, student and FAQ data.</p>
+            <p>This portal is a full-stack academic web project engineered for the Web Development Framework curriculum (Practicals 7 through 14). It consolidates student identity management, event registration, directory lookups, and administrative control into a cohesive, secure platform.</p>
+            <p>The architecture features a robust PHP 8.2 backend, PDO prepared statements, session security with CSRF mitigation, MySQL relational database persistence, and asynchronous REST APIs for dynamic UI updates.</p>
         </section>
         <div class="grid about-columns">
             <section class="card">
                 <h3>What you can find here</h3>
                 <ul class="plain-list">
-                    <li>Student dashboard and profile details</li>
-                    <li>Upcoming campus events</li>
-                    <li>Student directory with search options</li>
-                    <li>Frequently asked questions and feedback</li>
+                    <li>Dynamic student dashboard and database-backed profile management</li>
+                    <li>Campus events with RSVP registration and poster management</li>
+                    <li>Live student directory with real-time MySQL search and filtering</li>
+                    <li>Role-based administration panel with audit logging and analytics</li>
                 </ul>
             </section>
             <section class="card">
-                <h3>Project note</h3>
-                <p>This is a front-end demonstration. The displayed student details are sample data, and forms are not connected to a university database.</p>
-                <a class="btn" href="index.html">Go to Home</a>
+                <h3>Architecture &amp; Technologies</h3>
+                <p>Built with PHP 8, MySQL/MariaDB (PDO), modern CSS3 with responsive dark/light themes, ES6 JavaScript modules, and automated MySQL integration testing.</p>
+                <a class="btn btn-primary" href="index.html">Back to Home</a>
             </section>
         </div>
     </div>
@@ -74,5 +73,7 @@
 <footer><p>&copy; 2026 StudentHub Portal | CHARUSAT</p></footer>
 <script src="js/theme.js" defer></script>
 <script src="js/hamburger.js" defer></script>
+<script src="js/php_check.js" defer></script>
+<script src="js/auth_nav.js" defer></script>
 </body>
 </html>

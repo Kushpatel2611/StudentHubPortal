@@ -33,22 +33,21 @@
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="register.html">Register</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="dashboard.html">Dashboard</a></li>
             <li><a href="events.html">Events</a></li>
-            <li><a href="profile.html">Profile</a></li>
+            <li><a href="students.html">Students</a></li>
+            <li><a href="profile.php">Profile</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="admin.html">Admin</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="feedback.html" aria-current="page">Feedback</a></li>
+            <li data-auth-item><a href="practical9.php">Register</a></li>
+            <li data-auth-item><a href="login.php">Login</a></li>
         </ul>
     </div>
 </nav>
 
 <main>
 
-    <form>
+    <form data-api="api/feedback.php" id="feedback-form">
 
         <fieldset>
 
@@ -60,6 +59,8 @@
                 <input
                     type="text"
                     id="name"
+                    name="name"
+                    minlength="2"
                     placeholder="Enter your name"
                     required>
 
@@ -67,12 +68,13 @@
                 <input
                     type="email"
                     id="email"
+                    name="email"
                     placeholder="Enter your email"
                     required>
 
                 <label for="rating">Rating</label>
 
-                <select id="rating" required>
+                <select id="rating" name="rating" required>
                     <option value="">Select Rating</option>
                     <option value="5">Excellent</option>
                     <option value="4">Very Good</option>
@@ -85,10 +87,16 @@
 
                 <textarea
                     id="message"
+                    name="message"
+                    minlength="5"
                     placeholder="Write your feedback here..."
                     required></textarea>
 
+                <input class="hp-field" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+
                 <input type="submit" value="Submit Feedback" class="btn">
+
+                <p class="form-status" role="status" aria-live="polite"></p>
 
             </div>
 
@@ -104,5 +112,8 @@
 
 <script src="js/theme.js" defer></script>
 <script src="js/hamburger.js" defer></script>
+<script src="js/php_check.js" defer></script>
+<script src="js/auth_nav.js" defer></script>
+<script src="js/contact_form.js" defer></script>
 </body>
 </html>

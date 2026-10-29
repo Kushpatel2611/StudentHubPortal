@@ -38,7 +38,10 @@ function createStudentCard(student) {
     meta.appendChild(yearBadge);
 
     const email = document.createElement('p');
-    email.innerHTML = `<strong>Email:</strong> ${student.email}`;
+    const emailLabel = document.createElement('strong');
+    emailLabel.textContent = 'Email: ';
+    email.appendChild(emailLabel);
+    email.appendChild(document.createTextNode(student.email));
 
     card.appendChild(title);
     card.appendChild(meta);
@@ -101,7 +104,33 @@ async function loadStudents() {
     renderLoadingState(listContainer, 'Loading students...');
 
     try {
-        const students = await fetchJson('data/students.json');
+        let students = [];
+        try {
+            // First attempt to load dynamic active students from MySQL API
+            const res = await fetchJson('api/students.php');
+            if (res && res.success && Array.isArray(res.students) && res.students.length > 0) {
+                students = res.students.map((s) => {
+                    // Extract starting numbers or default to Year 2
+                    const match = String(s.student_code || '').match(/\d+/);
+                    const yearNum = match ? match[0].substring(0, 2) : '25';
+                    return {
+                        id: s.student_id,
+                        name: s.full_name || s.student_code,
+                        course: s.course,
+                        email: s.email,
+                        year: 2
+                    };
+                });
+            }
+        } catch (apiErr) {
+            students = [];
+        }
+
+        // Fall back to static JSON if database has no rows or server is running statically
+        if (!students.length) {
+            students = await fetchJson('data/students.json');
+        }
+
         state.allStudents = students;
         populateSelectOptions();
         renderStudents();

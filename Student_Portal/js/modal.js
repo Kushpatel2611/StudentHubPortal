@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  const closeButtons = modal.querySelectorAll('[data-close-modal]');
+  const closeButton = modal.querySelector('[data-close-modal]');
   const focusableSelector = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
   let lastFocusedElement = null;
 
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const focusInitialElement = () => {
     const focusableElements = getFocusableElements();
-    const elementToFocus = focusableElements.find((element) => !element.hasAttribute('data-close-modal')) || focusableElements[0];
+    const elementToFocus = focusableElements.find((element) => element !== closeButton) || closeButton;
 
     if (elementToFocus) {
       elementToFocus.focus();
@@ -47,7 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  closeButtons.forEach((button) => button.addEventListener('click', closeModal));
+  if (closeButton) {
+    closeButton.addEventListener('click', closeModal);
+  }
 
   modal.addEventListener('click', (event) => {
     if (event.target === modal) {

@@ -20,25 +20,11 @@ function createFaqCard(item) {
     category.className = 'badge';
     category.textContent = item.category;
 
-    const question = document.createElement('button');
-    question.type = 'button';
-    question.className = 'faq-question';
+    const question = document.createElement('h3');
     question.textContent = item.question;
-    question.setAttribute('aria-expanded', 'false');
 
-    const answer = document.createElement('div');
-    answer.className = 'faq-answer';
-    answer.hidden = true;
-    const answerText = document.createElement('p');
-    answerText.textContent = item.answer;
-    answer.appendChild(answerText);
-
-    question.addEventListener('click', () => {
-        const isOpen = question.getAttribute('aria-expanded') === 'true';
-        question.setAttribute('aria-expanded', String(!isOpen));
-        question.classList.toggle('is-open', !isOpen);
-        answer.hidden = isOpen;
-    });
+    const answer = document.createElement('p');
+    answer.textContent = item.answer;
 
     card.appendChild(category);
     card.appendChild(question);

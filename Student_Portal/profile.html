@@ -3,29 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>try { document.documentElement.setAttribute('data-theme', localStorage.getItem('charusat-theme') === 'dark' ? 'dark' : 'light'); } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }</script>
+    <meta http-equiv="refresh" content="0; url=profile.php">
+    <script>
+        // Immediately redirect to dynamic profile.php if running through HTTP/HTTPS
+        if (window.location.protocol.startsWith('http')) {
+            window.location.replace('profile.php');
+        }
+        try { document.documentElement.setAttribute('data-theme', localStorage.getItem('charusat-theme') === 'dark' ? 'dark' : 'light'); } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+    </script>
     <title>Profile | StudentHub Portal</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header><h1>Profile</h1><div class="nav-controls"><button class="theme-toggle" type="button" aria-label="Switch theme">Dark Theme</button><button class="hamburger-menu" type="button" aria-expanded="false" aria-label="Open navigation menu" aria-controls="main-nav">☰</button></div></header>
-<nav id="main-nav"><div class="nav-wrap"><ul>
+<header><h1>Student Profile</h1><div class="nav-controls"><button class="theme-toggle" type="button" aria-label="Switch theme">Dark Theme</button><button class="hamburger-menu" type="button" aria-expanded="false" aria-label="Open navigation menu" aria-controls="main-nav">☰</button></div></header>
+<nav id="main-nav">
+    <div class="nav-wrap">
+        <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="register.html">Register</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="dashboard.html">Dashboard</a></li>
             <li><a href="events.html">Events</a></li>
-            <li><a href="profile.html" aria-current="page">Profile</a></li>
+            <li><a href="students.html">Students</a></li>
+            <li><a href="profile.php" aria-current="page">Profile</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="admin.html">Admin</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="feedback.html">Feedback</a></li>
-</ul></div></nav>
-<main><div class="container page-container simple-page"><section class="simple-page-heading"><h2>Student Profile</h2></section>
-<section class="card simple-section"><div class="simple-profile-head"><div class="simple-avatar">KG</div><div><h3>Kush Godhaviya</h3><p>25CE030 · Computer Engineering</p></div></div>
-<dl class="simple-details"><div><dt>Programme</dt><dd>B.Tech Computer Engineering</dd></div><div><dt>Department</dt><dd>Computer Engineering</dd></div><div><dt>Semester</dt><dd>3rd Semester</dd></div><div><dt>College</dt><dd>CSPIT, CHARUSAT</dd></div><div><dt>Email</dt><dd><a href="mailto:25ce030@charusat.edu.in">25ce030@charusat.edu.in</a></dd></div><div><dt>Enrollment No.</dt><dd>25CE030</dd></div></dl>
-<a class="btn" href="dashboard.html">Go to Dashboard</a></section></div></main>
+            <li data-auth-item><a href="practical9.php">Register</a></li>
+            <li data-auth-item><a href="login.php">Login</a></li>
+        </ul>
+    </div>
+</nav>
+<main><div class="container page-container simple-page">
+    <section class="simple-page-heading">
+        <h2>Student Profile</h2>
+        <p>Dynamic profile management is powered by PHP &amp; MySQL.</p>
+    </section>
+    <section class="card simple-section">
+        <div class="alert alert-success" style="margin-bottom: 1.25rem;">
+            Looking for your live academic records and account settings?
+        </div>
+        <div class="simple-profile-head">
+            <div class="simple-avatar">ST</div>
+            <div>
+                <h3>StudentHub Member</h3>
+                <p>CSPIT &bull; CHARUSAT University</p>
+            </div>
+        </div>
+        <p style="margin: 1rem 0;">Logged-in students can view and update their real database-backed profile details, enrollment code, and password.</p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a class="btn btn-primary" href="profile.php">Open My Profile (PHP &amp; MySQL)</a>
+            <a class="btn btn-secondary" href="dashboard.php">Go to Dashboard</a>
+        </div>
+    </section>
+</div></main>
 <footer><p>&copy; 2026 CHARUSAT StudentHub Portal</p></footer>
 <script src="js/theme.js" defer></script><script src="js/hamburger.js" defer></script>
+<script src="js/php_check.js" defer></script>
+<script src="js/auth_nav.js" defer></script>
 </body></html>

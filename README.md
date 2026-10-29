@@ -189,7 +189,7 @@ This project was built step-by-step through the lab practicals:
 
 ## Author & Academic Information
 
-- **Student:** Kush Patel (25CE030)
+- **Student:** Kush Godhaviya (25CE030)
 - **Course:** Web Development Frameworks (ITUE203)
 - **Program:** B.Tech Computer Engineering (Semester 3, 2026–27)
-- **Institute:** Faculty of Technology and Engineering (FTE), CHARUSAT
+- **Institute:**  Chandubhai S Patel Institute of Science and technology(CSPIT) , CHARUSAT

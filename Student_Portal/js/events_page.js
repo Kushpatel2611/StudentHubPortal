@@ -32,6 +32,15 @@ function createEventCard(event) {
     const card = document.createElement('article');
     card.className = 'event-card';
 
+    if (event.poster) {
+        const poster = document.createElement('img');
+        poster.className = 'event-poster';
+        poster.src = event.poster;
+        poster.alt = `Poster for ${event.title}`;
+        poster.loading = 'lazy';
+        card.appendChild(poster);
+    }
+
     const title = document.createElement('h3');
     title.textContent = event.title;
 
@@ -97,7 +106,18 @@ async function loadEvents() {
     renderLoadingState(listContainer, 'Loading events...');
 
     try {
-        const events = await fetchJson('data/events.json');
+        let events = [];
+        try {
+            // Events created in the admin panel (database) come first...
+            events = await fetchJson('api/events.php');
+        } catch (apiError) {
+            events = [];
+        }
+        // ...and the original static JSON file is used when the database has none
+        // or PHP/MySQL is not running.
+        if (!Array.isArray(events) || events.length === 0) {
+            events = await fetchJson('data/events.json');
+        }
         state.allEvents = events;
         populateCategoryOptions();
         renderEvents();
